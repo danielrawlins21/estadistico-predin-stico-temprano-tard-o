@@ -1,9 +1,9 @@
 from pathlib import Path
 import pandas as pd
 
-DATA_PATH = Path("data/data.xlsx")
-OUT_PROFILE = Path("outputs/profile_summary.txt")
-OUT_SAMPLE = Path("outputs/sample_rows.csv")
+DATA_PATH = Path("craneos-analisis/data/data.xlsx")
+OUT_PROFILE = Path("craneos-analisis/outputs/profile_summary.txt")
+OUT_SAMPLE = Path("craneos-analisis/outputs/sample_rows.csv")
 
 def main():
     if not DATA_PATH.exists():
