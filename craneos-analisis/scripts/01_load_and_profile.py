@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-DATA_PATH = Path("data/dataset.xlsx")
+DATA_PATH = Path("data/data.xlsx")
 OUT_PROFILE = Path("outputs/profile_summary.txt")
 OUT_SAMPLE = Path("outputs/sample_rows.csv")
 
