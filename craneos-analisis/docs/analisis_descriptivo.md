@@ -94,6 +94,20 @@ para determinar si las diferencias observadas son estadísticamente significativ
 
 Con el objetivo de complementar el análisis numérico, se realizó un análisis gráfico de la anchura craneal en ambos periodos históricos mediante diagramas de caja y bigotes. Este tipo de representación permite comparar de forma visual la centralización, la dispersión y la presencia de valores atípicos entre las submuestras.
 
+#### Diagramas de caja obtenidos
+
+**Predinástico temprano**
+
+![Boxplot predinástico temprano](../outputs/figures/boxplot_temprano.png)
+
+**Predinástico tardío**
+
+![Boxplot predinástico tardío](../outputs/figures/boxplot_tardio.png)
+
+**Comparación entre periodos**
+
+![Boxplot comparativo](../outputs/figures/boxplot_comparativo.png)
+
 ### 5.2 Comparación de la centralización
 
 En el diagrama de caja comparativo se observa que la mediana de la anchura craneal en el periodo predinástico tardío es claramente superior a la correspondiente al periodo predinástico temprano. Este desplazamiento de la mediana indica que los valores centrales de la anchura craneal tienden a ser mayores en el periodo tardío.
