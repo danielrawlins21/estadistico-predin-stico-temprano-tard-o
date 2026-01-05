@@ -1,0 +1,33 @@
+Resumen de estadísticos descriptivos
+
+=== Predinástico temprano ===
+n                   : 30
+media               : 131.5333
+mediana             : 131.5000
+varianza            : 0.6713
+desviacion_tipica   : 0.8193
+min                 : 130
+max                 : 134
+asimetria           : 0.6570
+curtosis            : 1.3044
+
+=== Predinástico tardío ===
+n                   : 30
+media               : 132.4667
+mediana             : 133.0000
+varianza            : 1.0161
+desviacion_tipica   : 1.0080
+min                 : 131
+max                 : 135
+asimetria           : 0.1951
+curtosis            : -0.1862
+
+=== Comparación (tardío - temprano) ===
+delta_media         : 0.9333
+delta_mediana       : 1.5000
+delta_varianza      : 0.3448
+delta_desviacion_tipica: 0.1887
+delta_asimetria     : -0.4619
+delta_curtosis      : -1.4906
+delta_min           : 1
+delta_max           : 1

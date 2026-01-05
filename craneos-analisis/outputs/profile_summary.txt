@@ -1,0 +1,24 @@
+=== PERFIL BÁSICO DEL DATASET ===
+Filas: 60
+Columnas: 2
+
+=== COLUMNAS Y TIPOS ===
+Época histórica       int64
+Anchura del cráneo    int64
+dtype: object
+
+=== NULOS POR COLUMNA ===
+Época histórica       0
+Anchura del cráneo    0
+dtype: int64
+
+=== DUPLICADOS (FILAS COMPLETAS) ===
+50
+
+=== DESCRIPTIVO (NUMÉRICAS) ===
+                    count   mean       std    min    25%    50%    75%    max
+Época histórica      60.0    1.5  0.504219    1.0    1.0    1.5    2.0    2.0
+Anchura del cráneo   60.0  132.0  1.025109  130.0  131.0  132.0  133.0  135.0
+
+=== VALORES ÚNICOS (CATEGÓRICAS, top 20) ===
+No hay columnas categóricas.
