@@ -88,7 +88,43 @@ para determinar si las diferencias observadas son estadísticamente significativ
 
 ---
 
-## 5. Consideraciones para el análisis posterior
+## 5. Análisis gráfico de la anchura craneal
+
+### 5.1 Análisis gráfico mediante diagramas de caja
+
+Con el objetivo de complementar el análisis numérico, se realizó un análisis gráfico de la anchura craneal en ambos periodos históricos mediante diagramas de caja y bigotes. Este tipo de representación permite comparar de forma visual la centralización, la dispersión y la presencia de valores atípicos entre las submuestras.
+
+### 5.2 Comparación de la centralización
+
+En el diagrama de caja comparativo se observa que la mediana de la anchura craneal en el periodo predinástico tardío es claramente superior a la correspondiente al periodo predinástico temprano. Este desplazamiento de la mediana indica que los valores centrales de la anchura craneal tienden a ser mayores en el periodo tardío.
+
+Desde un punto de vista gráfico, este resultado sugiere una posible evolución temporal hacia cráneos de mayor anchura a medida que avanza el periodo histórico.
+
+### 5.3 Comparación de la dispersión
+
+El rango intercuartílico (IQR), representado por la altura de la caja, es ligeramente mayor en el periodo predinástico tardío. Esto indica que el 50 % central de las observaciones presenta una mayor variabilidad en dicho periodo.
+
+Asimismo, los bigotes del periodo tardío abarcan un intervalo ligeramente más amplio, especialmente hacia valores altos de anchura, lo que refuerza la idea de una mayor dispersión en comparación con el periodo temprano.
+
+### 5.4 Valores atípicos
+
+En ambos periodos se identifican valores atípicos en la parte superior de la distribución. No obstante, el valor atípico observado en el periodo predinástico tardío alcanza una anchura mayor que el observado en el periodo temprano.
+
+La presencia de estos valores extremos no parece distorsionar la distribución principal, ya que las cajas permanecen bien definidas y no se observan colas excesivamente largas. Esto sugiere que las diferencias observadas entre periodos no se deben exclusivamente a la influencia de valores atípicos.
+
+### 5.5 Solapamiento entre distribuciones
+
+A pesar del desplazamiento observado en las medianas, existe un solapamiento parcial entre las cajas de ambos periodos. Esto indica que, aunque las distribuciones difieren en su posición central, no existe una separación completa entre las anchuras craneales de los dos periodos históricos.
+
+Este solapamiento sugiere que, si bien puede existir una diferencia entre periodos, dicha diferencia deberá ser evaluada cuidadosamente mediante técnicas de inferencia estadística.
+
+### 5.6 Conclusión del análisis gráfico
+
+El análisis gráfico mediante diagramas de caja muestra un desplazamiento del centro de la distribución de la anchura craneal hacia valores mayores en el periodo predinástico tardío, acompañado de una mayor dispersión. No obstante, el solapamiento observado entre ambas distribuciones indica que las diferencias visuales deberán ser confirmadas mediante análisis inferencial.
+
+---
+
+## 6. Consideraciones para el análisis posterior
 
 Dado que se observan diferencias en la forma de las distribuciones y en la dispersión,
 resulta necesario evaluar explícitamente el supuesto de normalidad antes de aplicar
