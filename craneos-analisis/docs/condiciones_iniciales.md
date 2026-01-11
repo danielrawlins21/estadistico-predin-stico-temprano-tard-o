@@ -56,19 +56,43 @@ Por tanto, la condición de normalidad no se cumple de manera estricta para amba
 
 ---
 
-### 6. Homocedasticidad (igualdad de varianzas)
+## HU-2.2 – Comprobación de la homocedasticidad (test de Levene)
 
-Para comprobar la igualdad de varianzas entre ambas submuestras se aplicó el test de Levene, cuya hipótesis nula establece que las varianzas poblacionales son iguales.
-
-- **Hipótesis nula (H₀):** las varianzas son iguales.  
-- **Hipótesis alternativa (H₁):** las varianzas son distintas.
-
-El resultado del test de Levene proporciona un p-valor que permite evaluar esta condición. En función de dicho resultado, se decide el uso del test t clásico o del test t de Welch.
+Con el fin de evaluar la igualdad de varianzas entre las submuestras correspondientes al periodo predinástico temprano y tardío, se aplicó el test de Levene, que resulta más robusto frente a desviaciones de la normalidad que otros contrastes clásicos.
 
 ---
 
-### 7. Decisión metodológica
+### 1. Planteamiento del contraste
 
-Dado que la condición de normalidad no se cumple estrictamente para una de las submuestras y con el objetivo de no asumir igualdad de varianzas sin evidencia suficiente, se opta por utilizar el test t de Welch para el contraste de hipótesis.
+- **Hipótesis nula (H₀):** las varianzas poblacionales son iguales.  
+- **Hipótesis alternativa (H₁):** las varianzas poblacionales son distintas.
 
-Esta decisión metodológica es coherente con el análisis previo de supuestos y garantiza una mayor robustez de los resultados obtenidos.
+El contraste se realiza con un nivel de significación \(\alpha = 0.05\).
+
+---
+
+### 2. Resultados obtenidos
+
+El test de Levene aplicado a ambas submuestras arrojó los siguientes resultados:
+
+- Tamaño muestral periodo predinástico temprano: \(n = 30\)  
+- Tamaño muestral periodo predinástico tardío: \(n = 30\)  
+- **Estadístico de Levene:** 0.6195  
+- **p-valor:** 0.4344  
+
+---
+
+### 3. Interpretación estadística
+
+Dado que el p-valor obtenido es claramente superior al nivel de significación considerado (\(p = 0.4344 > 0.05\)), no se rechaza la hipótesis nula de igualdad de varianzas.
+
+Por tanto, no existe evidencia estadística suficiente para afirmar que las varianzas de la anchura craneal difieran entre los periodos predinástico temprano y tardío, por lo que la homocedasticidad puede considerarse plausible.
+
+---
+
+### 4. Implicaciones metodológicas
+
+El cumplimiento de la condición de homocedasticidad permitiría, en principio, la aplicación del test t clásico para la diferencia de medias. No obstante, dado que la condición de normalidad no se cumple estrictamente para una de las submuestras, se opta por mantener el uso del test t de Welch en el contraste de hipótesis posterior.
+
+Esta decisión garantiza una mayor robustez del análisis inferencial y resulta coherente con los supuestos observados en los datos.
+
