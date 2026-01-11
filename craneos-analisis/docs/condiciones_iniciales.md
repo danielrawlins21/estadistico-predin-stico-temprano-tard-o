@@ -38,3 +38,37 @@ Dado que no se dispone de evidencia clara de igualdad de varianzas y con el fin 
 A pesar de que la condición de normalidad no se cumple estrictamente en una de las submuestras, se procede a realizar el contraste de hipótesis mediante el test t de Welch, tal y como se indica en el enunciado del ejercicio.
 
 Esta decisión se justifica por la robustez del test, la independencia entre las muestras y la coherencia esperada con los intervalos de confianza obtenidos previamente. No obstante, los resultados del contraste deberán interpretarse con cautela y en conjunto con el análisis inferencial realizado en el apartado anterior.
+
+## HU-2.2 – Comprobación de normalidad y homocedasticidad
+
+Antes de aplicar el test t para la diferencia de medias, se analizan las condiciones de normalidad y homocedasticidad de las muestras, con el fin de evaluar la validez del contraste.
+
+---
+
+### 5. Normalidad de las submuestras
+
+La normalidad de las distribuciones se evaluó previamente mediante el test de Kolmogorov–Smirnov. Los resultados obtenidos indicaron que:
+
+- La submuestra correspondiente al periodo predinástico temprano no sigue estrictamente una distribución normal.
+- La submuestra del periodo predinástico tardío puede considerarse aproximadamente normal.
+
+Por tanto, la condición de normalidad no se cumple de manera estricta para ambas poblaciones. No obstante, el test t es relativamente robusto frente a desviaciones moderadas de la normalidad, especialmente cuando los tamaños muestrales no son muy pequeños.
+
+---
+
+### 6. Homocedasticidad (igualdad de varianzas)
+
+Para comprobar la igualdad de varianzas entre ambas submuestras se aplicó el test de Levene, cuya hipótesis nula establece que las varianzas poblacionales son iguales.
+
+- **Hipótesis nula (H₀):** las varianzas son iguales.  
+- **Hipótesis alternativa (H₁):** las varianzas son distintas.
+
+El resultado del test de Levene proporciona un p-valor que permite evaluar esta condición. En función de dicho resultado, se decide el uso del test t clásico o del test t de Welch.
+
+---
+
+### 7. Decisión metodológica
+
+Dado que la condición de normalidad no se cumple estrictamente para una de las submuestras y con el objetivo de no asumir igualdad de varianzas sin evidencia suficiente, se opta por utilizar el test t de Welch para el contraste de hipótesis.
+
+Esta decisión metodológica es coherente con el análisis previo de supuestos y garantiza una mayor robustez de los resultados obtenidos.
