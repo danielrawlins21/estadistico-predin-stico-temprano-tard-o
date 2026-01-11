@@ -9,14 +9,13 @@ Con el objetivo de contrastar si la anchura media del cráneo difiere entre los 
 Se consideraron las siguientes hipótesis:
 
 - **Hipótesis nula (H₀):**  
-  \[
-  \mu_{\text{tardío}} = \mu_{\text{temprano}}
-  \]
+
+  $\mu_{tardío} = \mu_{temprano}$
+  
 
 - **Hipótesis alternativa (H₁):**  
-  \[
-  \mu_{\text{tardío}} \neq \mu_{\text{temprano}}
-  \]
+
+  $\mu_{tardío} \neq \mu_{temprano}$
 
 El contraste se realizó con un nivel de significación \(\alpha = 0.05\).
 
