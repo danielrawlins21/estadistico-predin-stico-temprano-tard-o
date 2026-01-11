@@ -64,8 +64,15 @@ La forma de las distribuciones se analizó mediante la asimetría y la curtosis.
   lo que indica una distribución aproximadamente simétrica.
   La curtosis ligeramente negativa sugiere una distribución algo más plana que la normal.
 
-Estas diferencias indican que las distribuciones no solo difieren en su centro,
-sino también en su forma.
+![Histograma comparativo](../outputs/figures/histogramas_submuestras.png)
+
+Se realizó un análisis descriptivo de la variable anchura craneal (mm) diferenciando entre las dos submuestras correspondientes al periodo predinástico temprano y al periodo predinástico tardío, con el objetivo de caracterizar la distribución de los datos antes de proceder a la inferencia estadística.
+
+En el periodo predinástico temprano, la distribución de la anchura craneal es aproximadamente unimodal, con la mayor concentración de valores situada entre 131 y 132 mm. No obstante, la forma de la distribución presenta una ligera asimetría positiva, observándose algunos valores más elevados que generan una cola hacia la derecha. La dispersión es moderada, con un rango aproximado entre 130 y 134 mm, lo que sugiere cierta variabilidad intra-periodo.
+
+Por su parte, en el periodo predinástico tardío, la distribución aparece claramente desplazada hacia valores mayores de anchura craneal. La mayor densidad de observaciones se sitúa en torno a los 133 mm, alcanzándose valores cercanos a los 135 mm. Visualmente, la distribución es más concentrada y regular que la correspondiente al periodo temprano, si bien se mantiene una ligera asimetría positiva.
+
+La comparación visual entre ambos periodos evidencia un desplazamiento de la distribución hacia la derecha en el periodo predinástico tardío, lo que sugiere un incremento de la anchura craneal a lo largo del tiempo. Esta observación preliminar apunta a la existencia de diferencias entre ambos periodos históricos, si bien dichas diferencias deberán ser confirmadas mediante pruebas estadísticas formales, tras la evaluación de los supuestos de normalidad y homocedasticidad.
 
 ---
 
