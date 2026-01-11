@@ -145,8 +145,34 @@ El análisis gráfico mediante diagramas de caja muestra un desplazamiento del c
 
 ---
 
-## 6. Consideraciones para el análisis posterior
+## 6. Evaluación visual de la normalidad (Q–Q plots)
+
+Con el fin de complementar el análisis descriptivo y gráfico previo, se utilizaron diagramas Q–Q para evaluar visualmente el ajuste de las submuestras a una distribución normal.
+
+En el **periodo predinástico temprano**, el Q–Q plot muestra una alineación razonable de los cuantiles empíricos con la recta teórica en la parte central de la distribución. No obstante, se observan desviaciones claras en los cuantiles extremos, especialmente en la cola derecha, donde aparecen valores alejados de la recta. Estas desviaciones sugieren la presencia de asimetría positiva y posibles valores extremos, lo que indica que la normalidad no puede asumirse de forma estricta para esta submuestra.
+
+En el **periodo predinástico tardío**, el Q–Q plot presenta un mejor ajuste global a la recta teórica, con una alineación más consistente de los puntos a lo largo de la mayor parte del rango de cuantiles. Sin embargo, también se aprecian desviaciones en los extremos, particularmente en la cola superior, lo que aconseja cautela al asumir la normalidad completa de la distribución.
+
+En conjunto, la evaluación visual mediante Q–Q plots sugiere que la aproximación a la normalidad es más plausible en la submuestra correspondiente al periodo predinástico tardío que en la del periodo temprano, si bien en ninguno de los dos casos la normalidad puede considerarse plenamente garantizada sin contrastación estadística formal.
+
+![Q–Q plots por periodo](../outputs/figures/qqplot_comparativo.png)
+
+---
+
+## 7. Consideraciones para el análisis posterior
 
 Dado que se observan diferencias en la forma de las distribuciones y en la dispersión,
 resulta necesario evaluar explícitamente el supuesto de normalidad antes de aplicar
 contrastes paramétricos, lo cual se realizará en el siguiente apartado del estudio.
+
+---
+
+## 8. Reflexiones finales del análisis descriptivo
+
+El análisis descriptivo realizado pone de manifiesto diferencias sistemáticas en la anchura craneal entre los periodos predinástico temprano y predinástico tardío. Tanto las medidas de centralización como los análisis gráficos sugieren un desplazamiento del centro de la distribución hacia valores mayores en el periodo tardío, acompañado de una mayor variabilidad.
+
+No obstante, el análisis de la forma de las distribuciones, apoyado por histogramas, diagramas de caja y Q–Q plots, indica que los supuestos de normalidad no se cumplen de manera clara en ambas submuestras, especialmente en el periodo predinástico temprano, donde se observa asimetría positiva y presencia de valores extremos.
+
+Estas observaciones subrayan la importancia de no basar las conclusiones únicamente en el análisis descriptivo y justifican la necesidad de aplicar pruebas estadísticas formales para evaluar la normalidad y la homocedasticidad antes de proceder a la inferencia. Asimismo, ponen de relieve la conveniencia de considerar procedimientos robustos o alternativos no paramétricos en caso de que los supuestos de los contrastes clásicos no se cumplan estrictamente.
+
+En este sentido, el análisis descriptivo no solo proporciona una primera aproximación a la estructura de los datos, sino que también orienta de manera crítica la selección de las técnicas inferenciales más adecuadas para responder a la pregunta de investigación planteada.
