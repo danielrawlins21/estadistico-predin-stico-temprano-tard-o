@@ -16,12 +16,14 @@ Por tanto, la condición de independencia se considera satisfecha.
 
 Otra condición fundamental del test t es que las poblaciones de las que proceden las muestras sigan una distribución normal.
 
-En el ejercicio previo se aplicó el test de Kolmogorov–Smirnov para evaluar la normalidad de ambas submuestras. Los resultados indicaron que:
+La normalidad de ambas submuestras se evaluó mediante tres contrastes complementarios: **Kolmogorov–Smirnov (KS)**, **Shapiro–Wilk** y **Lilliefors**. Los resultados obtenidos indicaron que:
 
-- La muestra correspondiente al periodo predinástico temprano no sigue estrictamente una distribución normal.
-- La muestra del periodo predinástico tardío puede considerarse aproximadamente normal.
+- En la submuestra correspondiente al **periodo predinástico temprano**, los tres tests rechazan la hipótesis nula de normalidad (\(p < 0.05\)).
+- En la submuestra correspondiente al **periodo predinástico tardío**, el test KS no rechaza la normalidad, mientras que Shapiro–Wilk y Lilliefors sí la rechazan.
 
-Por tanto, la condición de normalidad no se cumple de manera estricta para ambas poblaciones. Sin embargo, el test t es relativamente robusto frente a desviaciones moderadas de la normalidad, especialmente cuando los tamaños muestrales no son muy pequeños.
+Dado que Shapiro–Wilk y Lilliefors son más potentes y adecuados cuando los parámetros de la distribución normal se estiman a partir de la muestra, se adopta una interpretación prudente y se concluye que **no puede asumirse normalidad estricta en ninguna de las dos submuestras**.
+
+Por tanto, la condición de normalidad no se cumple de manera estricta para las poblaciones analizadas. No obstante, el test t es relativamente robusto frente a desviaciones moderadas de la normalidad, especialmente cuando los tamaños muestrales son similares y no muy pequeños.
 
 ---
 
@@ -29,70 +31,37 @@ Por tanto, la condición de normalidad no se cumple de manera estricta para amba
 
 El test t clásico para la diferencia de medias asume que ambas poblaciones tienen la misma varianza (homocedasticidad).
 
-Dado que no se dispone de evidencia clara de igualdad de varianzas y con el fin de no imponer una restricción adicional innecesaria, se opta por utilizar el test t de Welch, que no requiere la suposición de varianzas iguales y es más robusto en situaciones reales.
+Para evaluar esta condición se aplicó el **test de Levene**, que es más robusto frente a desviaciones de la normalidad que otros contrastes clásicos.
+
+Los resultados obtenidos fueron:
+
+- Tamaño muestral periodo predinástico temprano: \(n = 30\)  
+- Tamaño muestral periodo predinástico tardío: \(n = 30\)  
+- Estadístico de Levene: 0.6195  
+- p-valor: 0.4344  
+
+Dado que el p-valor es superior al nivel de significación considerado (\(p > 0.05\)), no se rechaza la hipótesis nula de igualdad de varianzas. Por tanto, la homocedasticidad puede considerarse plausible.
 
 ---
 
 ### 4. Decisión metodológica
 
-A pesar de que la condición de normalidad no se cumple estrictamente en una de las submuestras, se procede a realizar el contraste de hipótesis mediante el test t de Welch, tal y como se indica en el enunciado del ejercicio.
+A pesar de que la condición de normalidad no se cumple estrictamente en ninguna de las submuestras, se procede a realizar el contraste de hipótesis para la diferencia de medias mediante el **test t de Welch**, tal y como se indica explícitamente en el enunciado del ejercicio.
 
-Esta decisión se justifica por la robustez del test, la independencia entre las muestras y la coherencia esperada con los intervalos de confianza obtenidos previamente. No obstante, los resultados del contraste deberán interpretarse con cautela y en conjunto con el análisis inferencial realizado en el apartado anterior.
+Esta decisión se justifica por:
+- La independencia entre las muestras.
+- La robustez del test t (y en particular de Welch) frente a desviaciones moderadas de la normalidad.
+- La igualdad aproximada de tamaños muestrales.
+- La coherencia esperada con los intervalos de confianza obtenidos.
 
-## HU-2.2 – Comprobación de normalidad y homocedasticidad
-
-Antes de aplicar el test t para la diferencia de medias, se analizan las condiciones de normalidad y homocedasticidad de las muestras, con el fin de evaluar la validez del contraste.
-
----
-
-### 5. Normalidad de las submuestras
-
-La normalidad de las distribuciones se evaluó previamente mediante el test de Kolmogorov–Smirnov. Los resultados obtenidos indicaron que:
-
-- La submuestra correspondiente al periodo predinástico temprano no sigue estrictamente una distribución normal.
-- La submuestra del periodo predinástico tardío puede considerarse aproximadamente normal.
-
-Por tanto, la condición de normalidad no se cumple de manera estricta para ambas poblaciones. No obstante, el test t es relativamente robusto frente a desviaciones moderadas de la normalidad, especialmente cuando los tamaños muestrales no son muy pequeños.
+No obstante, los resultados del contraste deberán interpretarse con cautela y complementarse, cuando proceda, con una **alternativa no paramétrica** (por ejemplo, el test de Mann–Whitney), con el fin de reforzar la validez de las conclusiones inferenciales.
 
 ---
 
-## HU-2.2 – Comprobación de la homocedasticidad (test de Levene)
+### 5. Implicaciones metodológicas
 
-Con el fin de evaluar la igualdad de varianzas entre las submuestras correspondientes al periodo predinástico temprano y tardío, se aplicó el test de Levene, que resulta más robusto frente a desviaciones de la normalidad que otros contrastes clásicos.
+El cumplimiento de la condición de homocedasticidad (test de Levene: p = 0.4344 > 0.05) permitiría, en principio, la aplicación del test t clásico para la diferencia de medias. No obstante, dado que la condición de normalidad no se cumple estrictamente en ninguna de las submuestras (Shapiro–Wilk y Lilliefors rechazan normalidad), se opta por mantener el uso del **test t de Welch** en el contraste de hipótesis posterior, que no asume varianzas iguales y es más robusto frente a desviaciones de la normalidad.
 
----
+Esta decisión garantiza una mayor robustez del análisis inferencial y resulta coherente con los supuestos observados en los datos. Además, se recomienda complementar los resultados con el test de Mann–Whitney como contraste no paramétrico alternativo para reforzar la validez de las conclusiones.
 
-### 1. Planteamiento del contraste
-
-- **Hipótesis nula (H₀):** las varianzas poblacionales son iguales.  
-- **Hipótesis alternativa (H₁):** las varianzas poblacionales son distintas.
-
-El contraste se realiza con un nivel de significación \(\alpha = 0.05\).
-
----
-
-### 2. Resultados obtenidos
-
-El test de Levene aplicado a ambas submuestras arrojó los siguientes resultados:
-
-- Tamaño muestral periodo predinástico temprano: \(n = 30\)  
-- Tamaño muestral periodo predinástico tardío: \(n = 30\)  
-- **Estadístico de Levene:** 0.6195  
-- **p-valor:** 0.4344  
-
----
-
-### 3. Interpretación estadística
-
-Dado que el p-valor obtenido es claramente superior al nivel de significación considerado (\(p = 0.4344 > 0.05\)), no se rechaza la hipótesis nula de igualdad de varianzas.
-
-Por tanto, no existe evidencia estadística suficiente para afirmar que las varianzas de la anchura craneal difieran entre los periodos predinástico temprano y tardío, por lo que la homocedasticidad puede considerarse plausible.
-
----
-
-### 4. Implicaciones metodológicas
-
-El cumplimiento de la condición de homocedasticidad permitiría, en principio, la aplicación del test t clásico para la diferencia de medias. No obstante, dado que la condición de normalidad no se cumple estrictamente para una de las submuestras, se opta por mantener el uso del test t de Welch en el contraste de hipótesis posterior.
-
-Esta decisión garantiza una mayor robustez del análisis inferencial y resulta coherente con los supuestos observados en los datos.
 
