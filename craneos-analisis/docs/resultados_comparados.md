@@ -31,3 +31,20 @@ Adicionalmente, se emplea la prueba no paramétrica de Mann–Whitney U como con
 ## 4. Implicaciones para el análisis posterior
 
 La validación de los supuestos y la coherencia entre distintos contrastes permiten interpretar con mayor confianza los intervalos de confianza y las conclusiones inferenciales que se presentan en los apartados siguientes, sin perder de vista las limitaciones asociadas al tamaño muestral y a las desviaciones observadas en la distribución de los datos.
+
+
+# Limitaciones metodológicas del análisis
+
+El presente análisis estadístico permite identificar diferencias significativas en la anchura de los cráneos entre los periodos predinástico temprano y predinástico tardío. No obstante, los resultados deben interpretarse teniendo en cuenta una serie de limitaciones metodológicas que pueden afectar al alcance y generalización de las conclusiones.
+
+En primer lugar, el supuesto de normalidad no se cumple estrictamente en la submuestra correspondiente al periodo predinástico temprano, según el test de Kolmogorov–Smirnov. Aunque el tamaño muestral es moderado (n = 30) y se han empleado contrastes robustos como el test t de Welch, esta desviación de la normalidad puede influir en la precisión de las estimaciones paramétricas y en la interpretación de los intervalos de confianza.
+
+En segundo lugar, aunque el test de Levene no detecta diferencias significativas entre las varianzas de ambos grupos, la comprobación de homocedasticidad se basa en pruebas estadísticas que pueden tener potencia limitada en muestras de tamaño moderado. Por tanto, no puede descartarse completamente la existencia de diferencias sutiles en la dispersión de las distribuciones.
+
+Asimismo, el análisis asume la independencia entre las observaciones de ambas submuestras, condición que se admite de forma natural dado el contexto arqueológico del estudio. No obstante, la ausencia de información adicional sobre el proceso de muestreo o sobre posibles relaciones entre los restos analizados limita la verificación empírica de este supuesto.
+
+Por otra parte, el uso de pruebas no paramétricas, como el test de Mann–Whitney U, permite reforzar la robustez de las conclusiones al no depender de supuestos de normalidad. Sin embargo, estas pruebas contrastan diferencias en la distribución o en los rangos, y no directamente en las medias, lo que implica una ligera diferencia en la interpretación del efecto observado.
+
+Finalmente, el tamaño muestral y la naturaleza específica del yacimiento arqueológico analizado restringen la generalización de los resultados a otras poblaciones o periodos históricos. Las conclusiones obtenidas deben entenderse como válidas para el conjunto de datos analizado, y no necesariamente extrapolables a contextos más amplios sin evidencia adicional.
+
+En conjunto, estas limitaciones no invalidan los resultados obtenidos, pero sí subrayan la necesidad de interpretarlos con cautela y dentro del marco metodológico en el que han sido obtenidos.
