@@ -48,3 +48,46 @@ Por otra parte, el uso de pruebas no paramétricas, como el test de Mann–Whitn
 Finalmente, el tamaño muestral y la naturaleza específica del yacimiento arqueológico analizado restringen la generalización de los resultados a otras poblaciones o periodos históricos. Las conclusiones obtenidas deben entenderse como válidas para el conjunto de datos analizado, y no necesariamente extrapolables a contextos más amplios sin evidencia adicional.
 
 En conjunto, estas limitaciones no invalidan los resultados obtenidos, pero sí subrayan la necesidad de interpretarlos con cautela y dentro del marco metodológico en el que han sido obtenidos.
+
+
+# Conclusiones generales y coherencia inferencial
+
+## 1. Síntesis de los resultados estadísticos
+
+El análisis estadístico realizado sobre la anchura de los cráneos egipcios correspondientes a los periodos predinástico temprano y predinástico tardío revela diferencias consistentes y estadísticamente significativas entre ambos grupos.
+
+En primer lugar, el análisis descriptivo mostró que la media de la anchura craneal es mayor en el periodo predinástico tardío que en el periodo temprano, acompañada de una distribución ligeramente diferente en términos de dispersión y forma. Estas diferencias iniciales fueron visibles tanto en las medidas resumen como en los diagramas de caja y bigotes.
+
+La evaluación de los supuestos estadísticos indicó que la normalidad no se cumple estrictamente en la submuestra del periodo predinástico temprano, mientras que sí resulta plausible en la submuestra tardía. No obstante, el test de Levene no detectó diferencias significativas entre las varianzas de ambos grupos, lo que sugiere homocedasticidad razonable.
+
+---
+
+## 2. Coherencia entre intervalos de confianza y contrastes de hipótesis
+
+Los intervalos de confianza para la diferencia de medias de la anchura craneal, calculados para niveles de confianza del 90%, 95% y 99%, no incluyen el valor cero en ninguno de los casos. Este resultado indica que la diferencia observada entre periodos no solo es estadísticamente significativa, sino también estable frente a variaciones en el nivel de confianza considerado.
+
+La coherencia entre los intervalos de confianza y el resultado del test t de Welch, que conduce al rechazo de la hipótesis nula de igualdad de medias (p ≈ 0.00023), refuerza la solidez de la inferencia realizada. Ambos enfoques apuntan en la misma dirección: la anchura media de los cráneos es significativamente mayor en el periodo predinástico tardío que en el temprano.
+
+---
+
+## 3. Comparación entre enfoques paramétricos y no paramétricos
+
+Dado que uno de los supuestos de normalidad no se cumple estrictamente, se aplicó de forma complementaria la prueba no paramétrica de Mann–Whitney U. Este contraste también condujo al rechazo de la hipótesis nula de igualdad de distribuciones entre ambos periodos (p < 0.001).
+
+La concordancia entre los resultados obtenidos mediante el test t de Welch y el test de Mann–Whitney U sugiere que la conclusión principal no depende de manera crítica del cumplimiento estricto de los supuestos paramétricos. Esto aporta robustez adicional al análisis y reduce la probabilidad de que la diferencia observada sea un artefacto metodológico.
+
+---
+
+## 4. Interpretación sustantiva (storytelling)
+
+Desde el punto de vista sustantivo, los resultados indican que, en el conjunto de datos analizado, los cráneos correspondientes al periodo predinástico tardío presentan una mayor anchura media que los del periodo predinástico temprano. En términos históricos y antropológicos, este hallazgo es coherente con la hipótesis de una transición progresiva hacia formas craneales más anchas a medida que avanza el tiempo, en línea con la intuición planteada al inicio del estudio.
+
+Así, a la pregunta “¿en qué época la cabeza era más ancha?”, la evidencia estadística obtenida permite responder, con un alto grado de confianza, que la anchura craneal es mayor en el periodo predinástico tardío.
+
+---
+
+## 5. Conclusión final
+
+En conjunto, el análisis descriptivo, la validación de supuestos, los intervalos de confianza y los contrastes de hipótesis conducen a una conclusión consistente: existen diferencias estadísticamente significativas y sustantivamente relevantes en la anchura de los cráneos entre los periodos predinástico temprano y predinástico tardío, siendo mayor la anchura en este último.
+
+Estas conclusiones deben interpretarse dentro de las limitaciones metodológicas expuestas, pero cuentan con un respaldo inferencial sólido gracias a la coherencia entre los distintos métodos estadísticos empleados.
