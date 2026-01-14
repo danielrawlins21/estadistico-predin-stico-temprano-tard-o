@@ -1,0 +1,685 @@
+% !TEX program = pdflatex
+% =============================================
+% Plantilla LaTeX para el informe de BD
+% Proyecto: Análisis descriptivo e inferencial de la anchura craneal en dos periodos del Egipto predinástico
+% Compilar con: pdflatex (o xelatex)
+% =============================================
+\documentclass[11pt,a4paper]{article}
+\usepackage{fvextra}
+% ---- Paquetes básicos ----
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\usepackage{caption}
+
+
+% ---- Metadatos para portada UCM ----
+\newcommand{\universidad}{UNIVERSIDAD COMPLUTENSE DE MADRID}
+\newcommand{\facultad}{Facultad de Estudios Estadísticos}
+\newcommand{\grado}{Máster big data, data science \& inteligencia artificial}
+\newcommand{\curso}{2025-2026}
+\newcommand{\ciudad}{Madrid}
+
+
+% ---- Estilo de portada y encabezados ----
+\newcommand{\titulo}{Análisis descriptivo e inferencial de la anchura craneal en dos periodos del Egipto predinástico}
+\newcommand{\autor}{Daniel Olmedo Rawlins Poveda}
+\newcommand{\asignatura}{Estadística}
+\newcommand{\profesor}{Conrado M. Manuel García}
+\newcommand{\fecha}{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textit{Tarea de} \asignatura}
+\rhead{\thepage}
+
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}
+
+% ---- Documento ----
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  % Logotipos institucionales
+  \vspace*{0.5cm}
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=3cm]{Logos/Complutense-Logo.png}\\[0.2cm]
+  \end{minipage}%
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=3cm]{Logos/ntic.png}\\[0.2cm]
+  \end{minipage}\\[0.5cm]
+  
+  {\Large \textbf{\universidad}}\\[0.25cm]
+  {\large \facultad}\\[0.1cm]
+  {\large \grado}
+  \vfill
+  {\LARGE \textbf{\titulo}}\\[0.5cm]
+  {\large \textit{Tarea de} \asignatura}
+  \vfill
+  \begin{flushleft}
+  \setlength{\tabcolsep}{6pt}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}ll}
+    \textbf{Autor(a):} & \autor \\
+    \textbf{Profesor(a):} & \profesor \\
+    \textbf{Curso académico:} & \curso \\
+  \end{tabular}
+  \end{flushleft}
+  \vfill
+  {\ciudad, \fecha}
+\end{titlepage}
+
+% Índice
+\tableofcontents
+\newpage
+
+% =========================================================
+\section{Introducción}
+
+\subsection{Contexto y motivación}
+
+El estudio de restos óseos procedentes de yacimientos arqueológicos constituye una fuente fundamental de información para comprender la evolución biológica y cultural de las poblaciones humanas. En particular, las características morfométricas del cráneo han sido ampliamente utilizadas para analizar posibles cambios asociados al paso del tiempo, a transformaciones culturales o a influencias ambientales.
+
+En el caso del antiguo Egipto, existe una percepción ampliamente difundida —reforzada tanto por representaciones artísticas como por el imaginario popular— de que la morfología craneal pudo variar a lo largo de los distintos periodos históricos, tendiendo desde formas más alargadas en épocas tempranas hacia cráneos relativamente más anchos o redondeados en periodos posteriores. Este trabajo se enmarca en ese contexto, abordando el análisis cuantitativo de la anchura craneal en dos periodos del Egipto predinástico.
+
+El uso de herramientas estadísticas permite evaluar de manera objetiva si las diferencias observadas entre periodos son atribuibles a variabilidad aleatoria o si, por el contrario, existe evidencia suficiente para sostener la presencia de un cambio sistemático en la anchura del cráneo a lo largo del tiempo.
+
+\subsection{Objetivo y pregunta de investigación}
+
+El objetivo principal de este estudio es analizar si existen diferencias estadísticamente significativas en la anchura media de los cráneos correspondientes a dos periodos históricos distintos: el predinástico temprano y el predinástico tardío.
+
+De manera más concreta, se pretende responder a la siguiente pregunta de investigación:
+
+\begin{quote}
+\emph{¿Existen diferencias en la anchura de los cráneos entre el periodo predinástico temprano y el predinástico tardío, y en qué periodo la cabeza era, en promedio, más ancha?}
+\end{quote}
+
+Para ello, se llevará a cabo un análisis estadístico que incluye una fase descriptiva inicial, la comprobación de los supuestos necesarios para la inferencia y, finalmente, la estimación mediante intervalos de confianza y la realización de contrastes de hipótesis.
+
+\subsection{Descripción de los datos}
+
+Los datos analizados proceden de un conjunto de observaciones recogidas en un yacimiento arqueológico y se componen de dos variables:
+
+\begin{itemize}
+    \item Una variable cualitativa dicotómica que identifica el periodo histórico al que pertenece cada cráneo, codificada como 1 para el periodo predinástico temprano y 2 para el periodo predinástico tardío.
+    \item Una variable cuantitativa continua que representa la anchura del cráneo, medida en milímetros.
+\end{itemize}
+
+La muestra está formada por dos submuestras independientes correspondientes a cada periodo histórico, con tamaños muestrales comparables. En el conjunto de datos no se han detectado valores perdidos, lo que permite realizar el análisis sin necesidad de procedimientos adicionales de imputación o depuración.
+
+Sobre la base de estos datos se desarrollará el análisis estadístico descrito en las secciones siguientes.
+
+
+% =========================================================
+\section{Metodología}
+
+\subsection{Plan de análisis}
+
+El análisis estadístico se ha estructurado siguiendo un protocolo secuencial que permite, en primer lugar, explorar las características básicas de los datos y, posteriormente, aplicar técnicas inferenciales adecuadas en función de los supuestos que se cumplan. Este enfoque garantiza que las conclusiones obtenidas estén correctamente fundamentadas desde el punto de vista estadístico.
+
+En concreto, el plan de análisis seguido ha sido el siguiente:
+
+\begin{enumerate}
+    \item \textbf{Análisis descriptivo de los datos}.  
+    Se calcularon, por separado para cada periodo histórico, medidas de centralización y dispersión (media, mediana, varianza y desviación típica), así como medidas de forma (asimetría y curtosis). Además, se emplearon representaciones gráficas —diagramas de caja y bigotes e histogramas— con el objetivo de visualizar la distribución de la anchura craneal y detectar posibles diferencias entre periodos.
+
+    \item \textbf{Comprobación de supuestos}.  
+    Antes de aplicar técnicas inferenciales paramétricas, se evaluó la normalidad de las distribuciones correspondientes a cada submuestra mediante el test de Kolmogorov--Smirnov. Asimismo, se analizó la igualdad de varianzas entre ambos grupos mediante un test de homocedasticidad, requisito relevante para la comparación de medias.
+
+    \item \textbf{Contraste de hipótesis principal}.  
+    Con el fin de evaluar si existen diferencias estadísticamente significativas entre las medias de la anchura craneal en ambos periodos, se aplicó el test \emph{t} para muestras independientes. En función del cumplimiento o no de los supuestos de normalidad y homocedasticidad, se consideró la versión adecuada del test (Student o Welch). Siguiendo las indicaciones del profesor, el contraste \emph{t} se realizó incluso en el caso de que alguno de los supuestos no se cumpliera estrictamente, discutiendo posteriormente la validez de los resultados.
+
+    \item \textbf{Estimación mediante intervalos de confianza}.  
+    Se calcularon intervalos de confianza para la diferencia entre las medias de la anchura craneal en ambos periodos, utilizando niveles de confianza del 90\%, 95\% y 99\%. Estos intervalos permiten cuantificar la magnitud y la dirección de la diferencia observada, complementando la información proporcionada por el contraste de hipótesis.
+
+    \item \textbf{Interpretación crítica de los resultados}.  
+    Finalmente, los resultados obtenidos se interpretaron de manera conjunta, integrando la información procedente del análisis descriptivo, los tests de supuestos, los contrastes de hipótesis y los intervalos de confianza. Asimismo, se discutieron las principales limitaciones del análisis y las posibles implicaciones del incumplimiento de algunos supuestos estadísticos.
+\end{enumerate}
+
+\subsection{Nivel de significación}
+
+En todos los contrastes de hipótesis realizados se ha adoptado un nivel de significación $\alpha = 0.05$. Este valor representa la probabilidad máxima de cometer un error de tipo I que se considera aceptable en el contexto de este estudio. En el caso de los intervalos de confianza, además del nivel habitual del 95\%, se han considerado niveles del 90\% y del 99\%, tal como se solicita en el enunciado del ejercicio.
+
+\subsection{Software}
+
+El análisis estadístico se llevó a cabo utilizando el lenguaje de programación \texttt{Python}, debido a su amplia disponibilidad de librerías especializadas para el tratamiento de datos y la inferencia estadística. En particular, se emplearon las siguientes librerías:
+
+\begin{itemize}
+    \item \texttt{NumPy} y \texttt{pandas} para la manipulación y el análisis de los datos.
+    \item \texttt{SciPy} y \texttt{statsmodels} para la realización de pruebas estadísticas e intervalos de confianza.
+    \item \texttt{matplotlib} y \texttt{seaborn} para la generación de las representaciones gráficas.
+\end{itemize}
+
+El código desarrollado permite reproducir íntegramente los resultados presentados en este informe y se entrega como archivo independiente, tal y como se indica en los requisitos del ejercicio.
+
+% =========================================================
+\section{Análisis descriptivo}
+
+\subsection{Descripción general de las submuestras}
+
+El análisis descriptivo se realizó sobre la variable \emph{anchura del cráneo} (en milímetros), diferenciando entre dos submuestras independientes correspondientes al periodo predinástico temprano y al periodo predinástico tardío. Cada submuestra está compuesta por 30 observaciones, lo que permite una comparación equilibrada entre ambos periodos históricos.
+
+El objetivo de este apartado es caracterizar las principales propiedades estadísticas de ambas distribuciones antes de proceder al análisis inferencial, identificando posibles diferencias en centralización, dispersión y forma.
+
+\subsection{Medidas resumen por periodo}
+
+En la Tabla~\ref{tab:descriptivos} se recogen las principales medidas descriptivas de la anchura craneal para cada periodo histórico.
+
+\begin{table}[H]
+\centering
+\caption{Estadísticos descriptivos de la anchura craneal por periodo}
+\label{tab:descriptivos}
+\begin{tabular}{lcccccc}
+\toprule
+Periodo & $n$ & Media & Mediana & Desv. típica & Asimetría & Curtosis \\
+\midrule
+Predinástico temprano & 30 & 131.53 & 131.50 & 0.82 & 0.66 & 1.30 \\
+Predinástico tardío   & 30 & 132.47 & 133.00 & 1.01 & 0.20 & -0.19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Desde el punto de vista de la centralización, tanto la media como la mediana de la anchura craneal son mayores en el periodo predinástico tardío. En concreto, la diferencia de medias entre ambos periodos es de aproximadamente 0.93 mm, mientras que la diferencia de medianas alcanza los 1.5 mm. Estos resultados sugieren, de forma preliminar, un desplazamiento del centro de la distribución hacia valores mayores en el periodo tardío.
+
+En cuanto a la dispersión, el periodo predinástico tardío presenta una desviación típica y una varianza superiores a las del periodo temprano, lo que indica una mayor variabilidad en las anchuras craneales durante dicho periodo. Aunque el rango total de valores es similar en ambos casos, la mayor dispersión observada en el periodo tardío será relevante al evaluar posteriormente el supuesto de homocedasticidad.
+
+Respecto a la forma de las distribuciones, el periodo predinástico temprano muestra una asimetría positiva moderada y una curtosis claramente positiva, lo que sugiere una distribución más apuntada que la normal y con una cola más larga hacia valores altos. Por el contrario, el periodo predinástico tardío presenta una asimetría cercana a cero y una curtosis ligeramente negativa, indicando una distribución más simétrica y algo más plana que la normal.
+
+\subsubsection{Histogramas comparativos}
+
+Con el objetivo de visualizar la distribución de la anchura craneal en cada periodo y detectar posibles diferencias en la forma de las distribuciones, se elaboraron histogramas comparativos para las submuestras correspondientes al periodo predinástico temprano y al periodo predinástico tardío.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{Imagenes/Capturas-Asignación6/histogramas_submuestras.png}
+\caption{Histogramas comparativos de la anchura craneal por periodo}
+\label{fig:histogramas}
+\end{figure}
+
+En el periodo \textbf{predinástico temprano}, la distribución de la anchura craneal presenta un patrón aproximadamente unimodal, con mayor concentración de observaciones entre 131 y 132 mm. Sin embargo, se aprecia una ligera \textbf{asimetría positiva}, coherente con el valor de asimetría estimado (0.66), lo que sugiere la presencia de una cola hacia valores altos.
+
+En el periodo \textbf{predinástico tardío}, el histograma muestra un \textbf{desplazamiento hacia valores mayores} de anchura, con una concentración notable en torno a 133 mm. La distribución aparece más regular y próxima a la simetría, en línea con la asimetría observada (0.20). No obstante, al igual que en el periodo temprano, se observan valores en el extremo superior que podrían influir en la forma global de la distribución.
+
+En conjunto, los histogramas sugieren un \textbf{incremento descriptivo de la anchura craneal} en el periodo tardío respecto al temprano. Aun así, dado el solapamiento parcial entre distribuciones y las diferencias en forma y dispersión, será necesario confirmar estas observaciones mediante inferencia estadística tras evaluar formalmente los supuestos de normalidad y homocedasticidad.
+
+
+\subsection{Análisis gráfico de la anchura craneal}
+
+Con el objetivo de complementar el análisis numérico, se realizó un análisis gráfico de la anchura craneal en ambos periodos históricos mediante diagramas de caja y bigotes. Este tipo de representación permite comparar de forma visual la centralización, la dispersión y la presencia de valores atípicos entre las submuestras.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Imagenes/Capturas-Asignación6/boxplot_comparativo.png}
+\caption{Diagramas de caja comparativos de la anchura craneal por periodo}
+\end{figure}
+
+El análisis visual mediante diagramas de caja confirma las diferencias observadas en las medidas de centralización. La mediana correspondiente al periodo predinástico tardío se sitúa claramente por encima de la del periodo temprano, lo que refuerza la evidencia descriptiva de un incremento de la anchura craneal a lo largo del tiempo.
+
+Asimismo, el rango intercuartílico del periodo tardío es ligeramente mayor, lo que indica una mayor variabilidad del 50\% central de las observaciones. Los bigotes del periodo tardío se extienden hacia valores más altos de anchura, y aunque en ambos periodos se identifican valores atípicos, estos no parecen dominar la estructura general de las distribuciones.
+
+A pesar del desplazamiento observado, existe un solapamiento parcial entre las distribuciones de ambos periodos. Este solapamiento sugiere que, aunque las diferencias descriptivas son claras, no existe una separación completa entre las anchuras craneales correspondientes a los dos periodos históricos.
+
+\subsection{Evaluación descriptiva de la normalidad}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Imagenes/Capturas-Asignación6/qqplot_comparativo.png}
+\caption{Diagramas de Q--Q para ver el ajuste de las submuestras}
+\end{figure}
+
+La evaluación visual de la normalidad mediante diagramas Q--Q muestra un comportamiento distinto en ambas submuestras. En el periodo predinástico temprano se observan desviaciones notables respecto a la recta teórica en los cuantiles extremos, especialmente en la cola derecha, lo que es coherente con la asimetría positiva y la curtosis elevada observadas en el análisis numérico.
+
+Por su parte, el periodo predinástico tardío presenta un mejor ajuste global a la normalidad, con una alineación más consistente de los cuantiles empíricos a lo largo de la mayor parte del rango. No obstante, también se aprecian desviaciones en los extremos, lo que aconseja cautela a la hora de asumir una distribución normal estricta.
+
+\subsection{Interpretación descriptiva y consideraciones preliminares}
+
+En conjunto, el análisis descriptivo pone de manifiesto diferencias sistemáticas en la anchura craneal entre los periodos predinástico temprano y predinástico tardío. Los valores centrales son mayores en el periodo tardío y la variabilidad es también más elevada, lo que sugiere una posible evolución temporal hacia cráneos de mayor anchura y mayor heterogeneidad.
+
+Sin embargo, las diferencias observadas en la forma de las distribuciones, junto con la presencia de asimetría y desviaciones respecto a la normalidad, indican que los supuestos necesarios para la aplicación de contrastes paramétricos deben ser evaluados con cuidado. Estas observaciones justifican la comprobación formal de la normalidad y la homocedasticidad en el apartado siguiente, así como la consideración de métodos alternativos en caso de que dichos supuestos no se cumplan estrictamente.
+
+
+% =========================================================
+\section{Comprobación de supuestos}
+\subsection{Normalidad}
+
+Antes de aplicar contrastes inferenciales paramétricos, se evaluó el supuesto de normalidad de la variable \emph{anchura del cráneo} en cada una de las submuestras correspondientes a los periodos predinástico temprano y predinástico tardío. La comprobación de este supuesto resulta especialmente relevante para contextualizar la validez teórica del contraste de igualdad de medias mediante el test \emph{t}.
+
+\subsubsection{Planteamiento de las hipótesis}
+
+Para cada submuestra se contrastaron las siguientes hipótesis, comunes a todos los tests de normalidad aplicados:
+
+\[
+H_0: \text{la muestra procede de una distribución normal}, \quad
+H_1: \text{la muestra no procede de una distribución normal}.
+\]
+
+Se adoptó un nivel de significación \(\alpha = 0.05\), y los contrastes se realizaron de forma bilateral, al pretender detectar cualquier tipo de desviación respecto a la normalidad.
+
+\subsubsection{Tests de normalidad utilizados}
+
+De acuerdo con el enunciado del ejercicio y las directrices indicadas en clase, se aplicó el test de \textbf{Kolmogorov--Smirnov (KS)} con estandarización previa de los datos. Con el fin de reforzar el análisis, y dado el tamaño muestral moderado de las submuestras (\(n = 30\)), se complementó este contraste con los tests de \textbf{Shapiro--Wilk} y \textbf{Lilliefors}, los cuales presentan mayor potencia cuando los parámetros de la distribución normal se estiman a partir de la muestra.
+
+Los contrastes se realizaron de manera independiente para cada periodo histórico.
+
+\subsubsection{Resultados del contraste de normalidad}
+
+En la Tabla~\ref{tab:normalidad} se resumen los resultados obtenidos para cada submuestra y cada uno de los tests aplicados.
+
+\begin{table}[H]
+\centering
+\caption{Pruebas de normalidad por periodo histórico}
+\label{tab:normalidad}
+\begin{tabular}{lccc}
+\toprule
+Periodo & Prueba & Estadístico & $p$-valor \\
+\midrule
+Predinástico temprano & Kolmogorov--Smirnov & 0.2425 & 0.0489 \\
+                      & Shapiro--Wilk       & 0.8378 & 0.0003 \\
+                      & Lilliefors          & 0.2425 & 0.0010 \\
+\midrule
+Predinástico tardío   & Kolmogorov--Smirnov & 0.2350 & 0.0611 \\
+                      & Shapiro--Wilk       & 0.8832 & 0.0033 \\
+                      & Lilliefors          & 0.2350 & 0.0010 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Para la submuestra correspondiente al \textbf{periodo predinástico temprano}, los tres contrastes aplicados arrojan p-valores inferiores al nivel de significación establecido. En consecuencia, se \textbf{rechaza la hipótesis nula de normalidad}, indicando que la distribución de la anchura craneal en este periodo presenta desviaciones estadísticamente significativas respecto a una distribución normal. Este resultado es coherente con lo observado en el análisis descriptivo previo, donde se detectaron asimetría positiva moderada y curtosis elevada.
+
+En el caso del \textbf{periodo predinástico tardío}, el test de Kolmogorov--Smirnov no rechaza la hipótesis de normalidad (\(p = 0.0611 > 0.05\)). Sin embargo, tanto el test de Shapiro--Wilk como la corrección de Lilliefors sí rechazan la hipótesis nula (\(p < 0.05\)). Esta discrepancia sugiere que el test KS podría presentar menor sensibilidad frente a desviaciones moderadas de la normalidad en esta submuestra.
+
+\subsubsection{Interpretación conjunta e implicaciones}
+
+La evidencia conjunta de los contrastes de normalidad indica que el supuesto de normalidad \textbf{no se cumple de forma robusta en ninguna de las dos submuestras}. En línea con las directrices del curso, y dada la mayor potencia de Shapiro--Wilk y Lilliefors para tamaños muestrales moderados, se otorga mayor peso a estos resultados frente al test KS cuando existen discrepancias.
+
+Este hecho tiene implicaciones directas para el análisis inferencial posterior. En particular, aunque se reportará el contraste paramétrico solicitado (test \emph{t} para la diferencia de medias), sus resultados deberán interpretarse con cautela. Por este motivo, y con el fin de evaluar la robustez de las conclusiones, el análisis se complementará con un contraste no paramétrico (test de Mann--Whitney), tal como se desarrolla en secciones posteriores.
+
+
+\subsection{Homocedasticidad (igualdad de varianzas)}
+
+Además del supuesto de normalidad, la aplicación de contrastes paramétricos para la comparación de medias requiere evaluar la igualdad de varianzas entre las poblaciones analizadas, condición conocida como \emph{homocedasticidad}. El cumplimiento de este supuesto resulta relevante para determinar la versión más adecuada del test \emph{t} para muestras independientes.
+
+En el presente estudio, el análisis descriptivo previo mostró diferencias en la dispersión de la anchura craneal entre ambos periodos históricos, siendo la varianza y la desviación típica mayores en el periodo predinástico tardío. Asimismo, los tests de normalidad indicaron desviaciones respecto a la normalidad, especialmente en el periodo predinástico temprano. En este contexto, resulta aconsejable emplear un contraste de igualdad de varianzas que sea \textbf{robusto frente a desviaciones de la normalidad}.
+
+Por este motivo, se seleccionó el \textbf{test de Levene} para evaluar la homocedasticidad. A diferencia del test F clásico, el test de Levene no asume normalidad estricta y es menos sensible a la presencia de asimetría o valores extremos, lo que lo hace especialmente adecuado en situaciones como la presente.
+
+\subsubsection{Planteamiento de las hipótesis}
+
+Las hipótesis contrastadas mediante el test de Levene fueron las siguientes:
+
+\[
+H_0: \sigma^2_{\text{temprano}} = \sigma^2_{\text{tardío}}, \quad
+H_1: \sigma^2_{\text{temprano}} \neq \sigma^2_{\text{tardío}}.
+\]
+
+Se adoptó un nivel de significación \(\alpha = 0.05\).
+
+\subsubsection{Resultados del test de Levene}
+
+En la Tabla~\ref{tab:levene} se presentan los resultados obtenidos al aplicar el test de Levene para evaluar la igualdad de varianzas entre ambos periodos históricos.
+
+\begin{table}[H]
+\centering
+\caption{Test de homocedasticidad (Levene)}
+\label{tab:levene}
+\begin{tabular}{lcc}
+\toprule
+Prueba & Estadístico & $p$-valor \\
+\midrule
+Levene & 0.6195 & 0.4344 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dado que el p-valor obtenido es superior al nivel de significación establecido (\(p = 0.4344 > 0.05\)), \textbf{no se rechaza la hipótesis nula de igualdad de varianzas}. Por tanto, desde un punto de vista estadístico, puede considerarse plausible el supuesto de homocedasticidad entre las submuestras correspondientes a los periodos predinástico temprano y predinástico tardío.
+
+\subsubsection{Implicaciones para el análisis inferencial}
+
+El resultado del test de Levene sugiere que las varianzas de ambas submuestras no difieren de forma estadísticamente significativa. En consecuencia, desde el punto de vista de la homocedasticidad, sería admisible la aplicación del test \emph{t} clásico para la comparación de medias.
+
+No obstante, teniendo en cuenta que el supuesto de normalidad no se cumple de manera estricta en ninguna de las dos submuestras, y siguiendo un enfoque conservador y robusto, se optó por emplear el \textbf{test \emph{t} de Welch} en el análisis inferencial posterior. Esta elección permite relajar el supuesto de igualdad de varianzas y proporciona resultados más fiables cuando existen desviaciones moderadas de los supuestos clásicos.
+
+
+% =========================================================
+\section{Inferencia estadística}
+\subsection{Intervalos de confianza para $\mu_{\text{tardío}} - \mu_{\text{temprano}}$}
+
+Además de los contrastes de hipótesis, resulta fundamental estimar la magnitud de la diferencia entre ambos periodos históricos. Con este objetivo, se construyeron intervalos de confianza para la diferencia entre las medias poblacionales de la anchura craneal correspondientes al periodo predinástico tardío y al periodo predinástico temprano.
+
+\subsubsection{Parámetro de interés}
+
+El parámetro de interés se define como:
+
+\[
+\Delta = \mu_{\text{tardío}} - \mu_{\text{temprano}},
+\]
+
+donde un valor positivo de $\Delta$ indica que la anchura media del cráneo es mayor en el periodo predinástico tardío.
+
+La estimación puntual obtenida a partir de las muestras es:
+
+\[
+\hat{\Delta} = 0.933 \text{ mm}.
+\]
+
+\subsubsection{Intervalos de confianza}
+
+En la Tabla~\ref{tab:ic_diferencia} se presentan los intervalos de confianza construidos para tres niveles de confianza distintos, tal como se solicita en el enunciado del ejercicio.
+
+\begin{table}[H]
+\centering
+\caption{Intervalos de confianza para la diferencia de medias ($\mu_{\text{tardío}} - \mu_{\text{temprano}}$)}
+\label{tab:ic_diferencia}
+\begin{tabular}{lcc}
+\toprule
+Nivel de confianza & Límite inferior (mm) & Límite superior (mm) \\
+\midrule
+0.90 & 0.537 & 1.330 \\
+0.95 & 0.458 & 1.408 \\
+0.99 & 0.301 & 1.566 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Como es esperable desde el punto de vista teórico, al aumentar el nivel de confianza los intervalos se ensanchan, reflejando una mayor incertidumbre en la estimación del parámetro poblacional.
+
+\subsubsection{Interpretación estadística}
+
+
+En los tres niveles de confianza considerados (90 \%, 95 \% y 99 \%), los intervalos de confianza obtenidos no contienen el valor 0. Este hecho indica que existen diferencias estadísticamente significativas entre las medias de la anchura craneal en ambos periodos históricos.
+
+Además, todos los intervalos son estrictamente positivos, lo que proporciona evidencia consistente de que la anchura media del cráneo es mayor en el periodo predinástico tardío que en el periodo predinástico temprano.
+
+\subsubsection{Interpretación contextual}
+
+Desde un punto de vista histórico y morfológico, los resultados sugieren que, con el paso del tiempo, los cráneos egipcios tendieron a presentar una mayor anchura. En términos cuantitativos, la anchura media del cráneo en el periodo predinástico tardío supera a la del periodo temprano en aproximadamente 0.9 mm.
+
+El hecho de que esta diferencia se mantenga estadísticamente significativa incluso al 99 % de confianza refuerza la conclusión de que el aumento de la anchura craneal no es atribuible a la variabilidad muestral, sino que refleja un cambio estructural entre ambos periodos históricos.
+
+\subsubsection{Relación con el supuesto de normalidad}
+
+Los intervalos de confianza se han construido mediante un enfoque paramétrico. Si bien los tests de normalidad indicaron que el supuesto de normalidad no se cumple de forma estricta, especialmente en el periodo predinástico temprano, el tamaño muestral moderado y la relativa robustez del estimador de la media permiten considerar razonable esta aproximación.
+
+No obstante, los resultados deben interpretarse con cautela y se complementan, en secciones posteriores, con contrastes no paramétricos que permiten evaluar la robustez de las conclusiones frente al incumplimiento de los supuestos clásicos.
+
+
+\subsection{Contraste principal de medias}
+
+Con el fin de evaluar formalmente si existen diferencias estadísticamente significativas entre las medias de la anchura craneal correspondientes a los periodos predinástico temprano y predinástico tardío, se realizó un contraste de hipótesis para muestras independientes.
+
+\subsubsection{Planteamiento de las hipótesis}
+
+Las hipótesis contrastadas fueron las siguientes:
+
+\[
+H_0: \mu_{\text{temprano}} = \mu_{\text{tardío}}, \quad
+H_1: \mu_{\text{temprano}} \neq \mu_{\text{tardío}}.
+\]
+
+Se adoptó un nivel de significación \(\alpha = 0.05\) y se consideró un contraste bilateral, al no presuponer a priori la dirección de la posible diferencia.
+
+\subsubsection{Resultados del contraste paramétrico}
+
+Teniendo en cuenta que el supuesto de normalidad no se cumple de forma estricta en ninguna de las dos submuestras, y siguiendo un enfoque conservador y robusto, se utilizó el \textbf{test \emph{t} de Welch} para la comparación de medias. Este contraste no requiere igualdad de varianzas y es más robusto frente a desviaciones moderadas de los supuestos clásicos.
+
+En la Tabla~\ref{tab:contrastes} se resumen los resultados obtenidos mediante el contraste paramétrico y su alternativa no paramétrica.
+
+\begin{table}[H]
+\centering
+\caption{Contrastes de hipótesis para la comparación entre periodos}
+\label{tab:contrastes}
+\begin{tabular}{lccc}
+\toprule
+Test & Estadístico & $p$-valor & Decisión ($\alpha = 0.05$) \\
+\midrule
+t de Welch & $t = 3.935$ & 0.000233 & Se rechaza $H_0$ \\
+Mann--Whitney U & $U = 217.5$ & 0.00033 & Se rechaza $H_0$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El test \emph{t} de Welch arroja un p-valor muy inferior al nivel de significación establecido, lo que conduce al rechazo de la hipótesis nula de igualdad de medias. En consecuencia, existe evidencia estadísticamente significativa de que la anchura media del cráneo difiere entre ambos periodos históricos.
+
+\subsection{Discusión de la validez del contraste}
+
+Aunque el test \emph{t} es relativamente robusto frente a desviaciones moderadas de la normalidad, especialmente cuando los tamaños muestrales son similares, los resultados de los tests de normalidad indicaron que dicho supuesto no se cumple estrictamente, en particular en la submuestra correspondiente al periodo predinástico temprano.
+
+El incumplimiento del supuesto de normalidad podría, en principio, afectar a la validez teórica del contraste paramétrico, influyendo en la distribución del estadístico de contraste y, por tanto, en la precisión del p-valor obtenido. No obstante, el tamaño muestral moderado (\(n = 30\) en cada grupo) y la utilización del test de Welch mitigan parcialmente este efecto, haciendo razonable la aplicación del contraste paramétrico desde un punto de vista práctico.
+
+Con el objetivo de evaluar la robustez de la conclusión obtenida, se aplicó de forma complementaria el \textbf{test no paramétrico de Mann--Whitney U}. Este contraste no asume normalidad y compara la posición central de las distribuciones mediante rangos, proporcionando una alternativa adecuada cuando los supuestos paramétricos no se cumplen.
+
+El hecho de que ambos contrastes —paramétrico y no paramétrico— conduzcan al rechazo de la hipótesis nula refuerza la solidez de la conclusión inferencial. Esta concordancia sugiere que la diferencia observada en la anchura craneal entre los periodos predinástico temprano y tardío no depende del método estadístico empleado, sino que refleja una diferencia estructural entre ambas poblaciones.
+
+En consecuencia, puede afirmarse que existe evidencia estadísticamente significativa y metodológicamente robusta de diferencias en la anchura de los cráneos entre ambos periodos históricos, siendo mayor la anchura media en el periodo predinástico tardío.
+
+
+% =========================================================
+\section{Conclusiones y limitaciones}
+
+\subsection{Conclusión principal}
+
+El objetivo principal de este estudio fue analizar si existían diferencias estadísticamente significativas en la anchura de los cráneos egipcios entre los periodos predinástico temprano y predinástico tardío, así como determinar en qué periodo histórico la cabeza presentaba mayor anchura media.
+
+El análisis realizado proporciona evidencia estadística sólida de que la anchura craneal difiere entre ambos periodos. Tanto el análisis descriptivo como los intervalos de confianza y los contrastes de hipótesis indican que la anchura media del cráneo es mayor en el periodo predinástico tardío. En particular, la diferencia de medias estimada es positiva y los intervalos de confianza al 90\,\%, 95\,\% y 99\,\% no contienen el valor cero, lo que refuerza la existencia de una diferencia real entre periodos.
+
+Asimismo, el contraste paramétrico mediante el test \emph{t} de Welch y la prueba no paramétrica de Mann--Whitney U conducen a la misma decisión inferencial: el rechazo de la hipótesis nula de igualdad entre ambos grupos. La coherencia entre ambos enfoques sugiere que la conclusión alcanzada es robusta frente al incumplimiento estricto de algunos supuestos estadísticos. En consecuencia, y en respuesta a la pregunta de investigación planteada, puede afirmarse con un alto grado de confianza que la anchura craneal es mayor en el periodo predinástico tardío que en el periodo predinástico temprano.
+
+\subsection{Limitaciones del análisis}
+
+A pesar de la solidez de los resultados obtenidos, es necesario interpretar las conclusiones a la luz de diversas limitaciones metodológicas.
+
+En primer lugar, el supuesto de normalidad no se cumple de forma estricta en la submuestra correspondiente al periodo predinástico temprano, tal como indican los tests de Kolmogorov--Smirnov, Shapiro--Wilk y Lilliefors. Aunque se han empleado contrastes robustos, como el test \emph{t} de Welch, esta desviación de la normalidad puede afectar a la precisión teórica de las inferencias paramétricas y aconseja cautela en la interpretación de los resultados.
+
+En segundo lugar, el tamaño muestral, si bien es moderado y equilibrado entre ambos grupos (\(n = 30\)), limita la potencia estadística de algunos contrastes y la capacidad de detectar diferencias más sutiles en la forma de las distribuciones. Asimismo, la presencia de valores extremos, aunque no dominante, podría influir en determinadas medidas resumen.
+
+Por otra parte, el análisis asume la independencia entre las observaciones, hipótesis razonable en el contexto del estudio pero que no puede verificarse empíricamente con la información disponible sobre el proceso de muestreo arqueológico. Del mismo modo, los resultados obtenidos se refieren exclusivamente al conjunto de cráneos analizado y a su contexto específico, lo que restringe la generalización de las conclusiones a otros yacimientos o periodos históricos.
+
+Finalmente, aunque la coincidencia entre los enfoques paramétrico y no paramétrico refuerza la robustez de la inferencia, debe tenerse en cuenta que estos contrastes evalúan aspectos ligeramente distintos (medias frente a distribuciones o rangos), lo que introduce matices en la interpretación del efecto observado.
+
+En conjunto, estas limitaciones no invalidan los resultados alcanzados, pero sí subrayan la necesidad de interpretarlos de forma prudente y dentro del marco metodológico en el que han sido obtenidos. No obstante, la coherencia entre descriptivos, intervalos de confianza y contrastes de hipótesis permite concluir que el análisis proporciona evidencia consistente de una mayor anchura craneal en el periodo predinástico tardío.
+
+
+
+% =========================================================
+\section*{Anexo A: Código y reproducibilidad}
+\addcontentsline{toc}{section}{Anexo A: Código y reproducibilidad}
+
+\subsection*{A.0. Repositorio del proyecto}
+
+El código fuente completo del análisis, junto con el conjunto de datos, las figuras generadas y el informe final, se encuentra disponible en un repositorio público de GitHub.
+
+El repositorio puede clonarse o descargarse desde la siguiente dirección:
+
+\begin{quote}
+\url{https://github.com/danielrawlins21/estadistico-predin-stico-temprano-tard-o}
+\end{quote}
+
+Para clonar el repositorio localmente se puede utilizar el comando:
+
+\begin{verbatim}
+git clone https://github.com/danielrawlins21/estadistico-predin-stico-temprano-tard-o.git
+\end{verbatim}
+
+Alternativamente, el proyecto puede descargarse como archivo comprimido (\texttt{.zip}) directamente desde la interfaz web de GitHub.
+
+\subsection*{A.1. Entrega y contenido}
+
+Para garantizar la reproducibilidad del análisis, se entrega el código utilizado en \texttt{Python} junto con los ficheros necesarios para ejecutar el flujo completo (carga de datos, análisis descriptivo, validación de supuestos, inferencia estadística y generación de figuras).
+
+La entrega incluye:
+\begin{itemize}
+    \item Un script o notebook principal con el análisis completo (\texttt{.py} o \texttt{.ipynb}).
+    \item Carpeta con salidas gráficas (figuras) utilizadas en el informe.
+    \item Archivo \texttt{requirements.txt} con el entorno de dependencias (librerías) para replicar los resultados.
+\end{itemize}
+
+\subsection*{A.2. Estructura recomendada del proyecto}
+
+La estructura de carpetas utilizada (o recomendada) para el proyecto es la siguiente:
+
+
+
+\begin{verbatim}
+craneos-analisis/
+|-- data/
+|   `-- data.xlsx
+|
+|-- scripts/
+|   `-- analisis_craneos.py
+|
+|-- outputs/
+|   `-- figures/
+|       |-- histogramas_submuestras.png
+|       |-- boxplot_temprano.png
+|       |-- boxplot_tardio.png
+|       |-- boxplot_comparativo.png
+|       `-- qqplot_comparativo.png
+|
+|-- docs/
+|   `-- informe.tex
+|
+|-- requirements.txt
+`-- README.md
+\end{verbatim}
+
+
+\noindent
+Esta organización permite separar claramente los datos, el código, las salidas generadas y el documento final.
+
+\subsection*{A.3. Dependencias y entorno}
+
+El análisis fue realizado en \texttt{Python} utilizando librerías estándar de análisis estadístico y visualización. 
+Las dependencias exactas del entorno se encuentran especificadas en el fichero \texttt{requirements.txt} (entregado junto al proyecto).
+
+\subsection*{A.4. Instrucciones de ejecución}
+
+Para reproducir el análisis desde cero, se recomienda seguir los pasos:
+
+\begin{enumerate}
+
+    \item cambiar al directorio de analisis de craneos:
+\begin{verbatim}
+cd craneos-analisis
+\end{verbatim}
+
+    \item Crear un entorno virtual (opcional pero recomendado):
+\begin{verbatim}
+python -m venv .venv
+\end{verbatim}
+
+    \item Activar el entorno virtual:
+\begin{verbatim}
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
+\end{verbatim}
+
+    \item Instalar dependencias:
+\begin{verbatim}
+pip install -r requirements.txt
+\end{verbatim}
+
+    \item Ejecutar el análisis:
+\begin{verbatim}
+python scripts/analisis_craneos.py
+\end{verbatim}
+\end{enumerate}
+
+\noindent
+Tras la ejecución, el script genera las principales tablas y figuras utilizadas en el informe y las almacena en \texttt{outputs/figures/}.
+
+\subsection*{A.5. Consideraciones de reproducibilidad}
+
+Para asegurar consistencia en los resultados:
+\begin{itemize}
+    \item Se recomienda mantener el mismo fichero de datos y su estructura (columnas y codificación de periodos).
+    \item Si el análisis incluye procedimientos aleatorios (p.ej., bootstrap), debe fijarse una semilla (\texttt{np.random.seed(...)}) para replicabilidad exacta.
+    \item Las rutas a figuras en el documento \LaTeX{} deben coincidir con las rutas reales del proyecto (por ejemplo, \texttt{outputs/figures/}).
+\end{itemize}
+
+\noindent
+Con estas medidas, el análisis presentado es completamente reproducible y verificable a partir de los ficheros entregados.
+
+
+\section*{Anexo B: Salidas completas de los análisis}
+\addcontentsline{toc}{section}{Anexo B: Salidas completas de los análisis}
+
+Con el objetivo de garantizar la transparencia del análisis estadístico y facilitar la verificación de los resultados presentados en el cuerpo principal del informe, en este anexo se recogen las salidas completas generadas por los distintos scripts de análisis.
+
+Las salidas incluyen los estadísticos numéricos, valores de los contrastes y resultados intermedios que sustentan las conclusiones inferenciales expuestas. Para evitar redundancias y mejorar la legibilidad del documento principal, dichos resultados no se reproducen íntegramente en las secciones anteriores, sino que se centralizan en este anexo.
+
+\subsection*{B.1. Análisis descriptivo}
+
+Las salidas completas del análisis descriptivo, que incluyen tamaños muestrales, medias, medianas, varianzas, desviaciones típicas, asimetría y curtosis para cada periodo histórico, se encuentran almacenadas en el fichero:
+
+\begin{verbatim}
+outputs/descriptivos_summary.txt
+\end{verbatim}
+
+Este fichero respalda los resultados resumidos e interpretados en la Sección de Análisis Descriptivo del informe.
+
+\subsection*{B.2. Comprobación de normalidad}
+
+Los resultados detallados de los tests de normalidad aplicados (Kolmogorov--Smirnov, Shapiro--Wilk y Lilliefors), incluyendo estadísticos y p-valores para cada submuestra, se encuentran disponibles en los siguientes ficheros:
+
+\begin{verbatim}
+outputs/normalidad_ks.txt
+outputs/normalidad_tests.txt
+\end{verbatim}
+
+Estas salidas constituyen la base numérica de la discusión sobre el cumplimiento del supuesto de normalidad presentada en la sección correspondiente.
+
+\subsection*{B.3. Homocedasticidad}
+
+Los resultados completos del test de Levene, utilizado para evaluar la igualdad de varianzas entre los periodos predinástico temprano y tardío, se encuentran recogidos en el fichero:
+
+\begin{verbatim}
+outputs/homocedasticidad_levene.txt
+\end{verbatim}
+
+\subsection*{B.4. Intervalos de confianza}
+
+Las salidas completas asociadas a la estimación de intervalos de confianza para la diferencia de medias, calculados para niveles de confianza del 90\,\%, 95\,\% y 99\,\%, se encuentran disponibles en:
+
+\begin{verbatim}
+outputs/ic_diferencia_medias.txt
+\end{verbatim}
+
+\subsection*{B.5. Contrastes de hipótesis}
+
+Los resultados numéricos completos de los contrastes inferenciales realizados se encuentran en los siguientes ficheros:
+
+\begin{verbatim}
+outputs/mann_whitney.txt
+outputs/resultados_t_test.txt
+\end{verbatim}
+
+Estos ficheros contienen los estadísticos de contraste y p-valores que sustentan la comparación entre enfoques paramétricos (test \emph{t} de Welch) y no paramétricos (Mann--Whitney U), discutida en la sección de Inferencia Estadística.
+
+\subsection*{B.6. Observación final}
+
+La inclusión de este anexo permite verificar que todas las conclusiones presentadas en el informe se derivan directamente de los resultados obtenidos mediante los procedimientos estadísticos aplicados. De este modo, el análisis mantiene coherencia interna, reproducibilidad y trazabilidad completa entre los datos originales, el código ejecutado y las conclusiones finales.
+
+
+\end{document}
