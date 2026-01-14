@@ -1,0 +1,10 @@
+Test de normalidad Kolmogorov–Smirnov
+====================================
+
+Predinástico temprano
+Estadístico KS: 0.2425
+p-valor       : 0.0489
+
+Predinástico tardío
+Estadístico KS: 0.2350
+p-valor       : 0.0611

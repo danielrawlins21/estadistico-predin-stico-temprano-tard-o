@@ -1,0 +1,61 @@
+Tests de normalidad: KS + Shapiro–Wilk + Lilliefors
+===================================================
+
+alpha = 0.05
+
+Predinástico temprano
+n = 30
+
+H0: la muestra proviene de una distribución Normal.
+H1: la muestra NO proviene de una distribución Normal.
+
+Kolmogorov–Smirnov (con estandarización)
+  Estadístico: 0.2425
+  p-valor    : 0.0489
+  Decisión   : Rechazar H0 (alpha=0.05)
+
+Shapiro–Wilk
+  Estadístico: 0.8378
+  p-valor    : 0.0003
+  Decisión   : Rechazar H0 (alpha=0.05)
+
+Lilliefors (KS corregido)
+  Estadístico: 0.2425
+  p-valor    : 0.0010
+  Decisión   : Rechazar H0 (alpha=0.05)
+
+Comentario breve
+  - KS se reporta porque lo solicita el enunciado.
+  - Shapiro–Wilk y Lilliefors suelen ser más potentes/adecuados en n pequeño-mediano.
+  - Si hay discrepancias entre tests, se interpreta con cautela y se justifica.
+
+------------------------------------------------------------
+
+Predinástico tardío
+n = 30
+
+H0: la muestra proviene de una distribución Normal.
+H1: la muestra NO proviene de una distribución Normal.
+
+Kolmogorov–Smirnov (con estandarización)
+  Estadístico: 0.2350
+  p-valor    : 0.0611
+  Decisión   : No rechazar H0 (alpha=0.05)
+
+Shapiro–Wilk
+  Estadístico: 0.8832
+  p-valor    : 0.0033
+  Decisión   : Rechazar H0 (alpha=0.05)
+
+Lilliefors (KS corregido)
+  Estadístico: 0.2350
+  p-valor    : 0.0010
+  Decisión   : Rechazar H0 (alpha=0.05)
+
+Comentario breve
+  - KS se reporta porque lo solicita el enunciado.
+  - Shapiro–Wilk y Lilliefors suelen ser más potentes/adecuados en n pequeño-mediano.
+  - Si hay discrepancias entre tests, se interpreta con cautela y se justifica.
+
+------------------------------------------------------------
+

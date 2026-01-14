@@ -1,0 +1,29 @@
+Test de Mann–Whitney U
+======================
+
+Justificación:
+Se aplica el test no paramétrico de Mann–Whitney U debido a que los
+tests de normalidad (KS, Shapiro–Wilk y Lilliefors) indican que no puede
+asumirse normalidad estricta en las submuestras.
+
+Hipótesis:
+H0: Las distribuciones de la anchura craneal son iguales en ambos periodos.
+H1: Las distribuciones de la anchura craneal son distintas.
+
+Datos:
+n predinástico temprano = 30
+n predinástico tardío   = 30
+
+Resultados:
+Estadístico U = 217.5000
+p-valor       = 0.000330
+alpha         = 0.05
+
+Decisión:
+Se rechaza H0 (diferencias estadísticamente significativas)
+
+Interpretación:
+El contraste de Mann–Whitney evalúa diferencias en la posición central
+de las distribuciones mediante rangos, sin asumir normalidad. El resultado
+se utilizará para contrastar la robustez de las conclusiones obtenidas
+mediante el test t de Welch.

@@ -1,0 +1,7 @@
+HU-2.1 – Intervalos de confianza para la diferencia de medias
+
+Diferencia de medias (tardío - temprano): 0.933
+
+IC 90% : [0.537, 1.330]
+IC 95% : [0.458, 1.408]
+IC 99% : [0.301, 1.566]

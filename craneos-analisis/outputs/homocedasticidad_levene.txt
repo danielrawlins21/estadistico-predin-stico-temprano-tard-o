@@ -1,0 +1,12 @@
+HU-2.2 – Test t de Welch
+========================
+
+Hipótesis:
+  H0: μ_tardío = μ_temprano
+  H1: μ_tardío ≠ μ_temprano
+
+Estadístico t: 3.935446
+p-valor: 0.000233
+alpha: 0.05
+
+Decisión: Se rechaza H0 (diferencia significativa de medias)
