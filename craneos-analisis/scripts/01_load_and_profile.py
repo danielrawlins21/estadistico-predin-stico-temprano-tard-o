@@ -1,10 +1,13 @@
 from pathlib import Path
 import pandas as pd
 
-DATA_PATH = Path("craneos-analisis/data/data.xlsx")
-OUT_PROFILE = Path("craneos-analisis/outputs/profile_summary.txt")
-OUT_SAMPLE = Path("craneos-analisis/outputs/sample_rows.csv")
+BASE_DIR = Path(__file__).resolve().parent.parent
+INPUT_DIR = BASE_DIR / "data"
+OUTPUTS_DIR = BASE_DIR / "outputs"
 
+DATA_PATH = INPUT_DIR / "data.xlsx"
+OUT_PROFILE = OUTPUTS_DIR / "profile_summary.txt"
+OUT_SAMPLE = OUTPUTS_DIR / "sample_rows.csv"
 def main():
     if not DATA_PATH.exists():
         raise FileNotFoundError(f"No encuentro el dataset en: {DATA_PATH.resolve()}")

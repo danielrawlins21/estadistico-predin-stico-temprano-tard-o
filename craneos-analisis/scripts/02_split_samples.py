@@ -1,11 +1,13 @@
 from pathlib import Path
 import pandas as pd
 
-DATA_PATH = Path("craneos-analisis/data/data.xlsx")
+BASE_DIR = Path(__file__).resolve().parent.parent
+INPUT_DIR = BASE_DIR / "data"
+OUTPUTS_DIR = BASE_DIR / "outputs"
+DATA_PATH = INPUT_DIR / "data.xlsx"
 
-OUT_DIR = Path("craneos-analisis/outputs")
-OUT_EARLY = OUT_DIR / "cranios_temprano.csv"
-OUT_LATE = OUT_DIR / "cranios_tardio.csv"
+OUT_EARLY = OUTPUTS_DIR / "cranios_temprano.csv"
+OUT_LATE = OUTPUTS_DIR / "cranios_tardio.csv"
 
 COL_GROUP = "Época histórica"
 COL_VALUE = "Anchura del cráneo"
@@ -43,7 +45,7 @@ def main():
             f"No se detectaron ambos grupos {EARLY_CODE} y {LATE_CODE}. Conteo por época: {counts}"
         )
 
-    OUT_DIR.mkdir(exist_ok=True)
+    OUTPUTS_DIR.mkdir(exist_ok=True)
 
     # Guardar solo la variable de interés (anchura), para facilitar análisis posteriores
     early[[COL_VALUE]].to_csv(OUT_EARLY, index=False)
