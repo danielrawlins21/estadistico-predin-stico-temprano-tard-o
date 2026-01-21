@@ -30,6 +30,19 @@ El test t de Welch proporcionó los siguientes resultados:
 
 Dado que el p-valor obtenido es muy inferior al nivel de significación considerado (\(p = 0.000233 < 0.05\)), se rechaza la hipótesis nula de igualdad de medias.
 
+### Representación gráfica del test *t* de Welch
+
+Con el objetivo de reforzar la interpretación del contraste de hipótesis realizado mediante el test *t* de Welch, se incluye una representación gráfica de la distribución teórica del estadístico *t* bajo la hipótesis nula de igualdad de medias.
+
+La Figura muestra la distribución *t* de Student correspondiente a los grados de libertad ajustados del test de Welch. Las líneas verticales discontinuas representan los valores críticos asociados a un contraste bilateral con un nivel de significación \(\alpha = 0.05\), delimitando la región crítica del contraste. La línea vertical continua indica el valor *t* observado obtenido a partir de los datos muestrales.
+
+![Distribución t con valor crítico y valor t observado](../outputs/figures/test_t_distribucion.png)
+
+Se observa que el valor *t* observado se sitúa claramente fuera de la región de aceptación de la hipótesis nula, en una de las colas de la distribución. Este resultado indica que la probabilidad de obtener una diferencia de medias tan extrema bajo la hipótesis de igualdad es muy reducida. En consecuencia, se rechaza la hipótesis nula, concluyéndose que existen diferencias estadísticamente significativas entre las medias de los periodos analizados.
+
+Cabe destacar que esta representación gráfica no se basa en la distribución empírica de los datos originales, sino en la distribución teórica del estadístico *t* bajo la hipótesis nula, incorporando los grados de libertad ajustados propios del test de Welch. De este modo, la visualización complementa el contraste numérico y refuerza la interpretación inferencial de los resultados obtenidos.
+
+
 ---
 
 ### Interpretación estadística

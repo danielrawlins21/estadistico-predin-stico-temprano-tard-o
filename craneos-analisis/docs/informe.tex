@@ -481,6 +481,18 @@ Mann--Whitney U & $U = 217.5$ & 0.00033 & Se rechaza $H_0$ \\
 
 El test \emph{t} de Welch arroja un p-valor muy inferior al nivel de significación establecido, lo que conduce al rechazo de la hipótesis nula de igualdad de medias. En consecuencia, existe evidencia estadísticamente significativa de que la anchura media del cráneo difiere entre ambos periodos históricos.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Imagenes/Capturas-Asignación6/test_t_distribucion.png}
+    \caption{Distribución t de Student con valores críticos y valor t observado para el contraste de medias (test t de Welch).}
+    \label{fig:test_t_welch}
+\end{figure}
+
+La Figura~\ref{fig:test_t_welch} representa la distribución teórica del estadístico $t$ bajo la hipótesis nula de igualdad de medias, correspondiente al contraste bilateral realizado mediante el test t de Welch. Las líneas verticales discontinuas indican los valores críticos asociados a un nivel de significación $\alpha = 0.05$, que delimitan la región crítica del contraste. La línea vertical continua representa el valor $t$ observado obtenido a partir de los datos muestrales.
+
+Se observa que el valor $t$ observado se sitúa claramente fuera de la región de aceptación de la hipótesis nula, en una de las colas de la distribución. Este resultado indica que la probabilidad de observar una diferencia de medias tan extrema bajo la hipótesis de igualdad es muy reducida. En consecuencia, se rechaza la hipótesis nula y se concluye que existen diferencias estadísticamente significativas entre las medias de los periodos analizados.
+
+
 \subsection{Discusión de la validez del contraste}
 
 Aunque el test \emph{t} es relativamente robusto frente a desviaciones moderadas de la normalidad, especialmente cuando los tamaños muestrales son similares, los resultados de los tests de normalidad indicaron que dicho supuesto no se cumple estrictamente, en particular en la submuestra correspondiente al periodo predinástico temprano.
