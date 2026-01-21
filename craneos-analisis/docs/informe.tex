@@ -352,6 +352,28 @@ Levene & 0.6195 & 0.4344 \\
 
 Dado que el p-valor obtenido es superior al nivel de significación establecido (\(p = 0.4344 > 0.05\)), \textbf{no se rechaza la hipótesis nula de igualdad de varianzas}. Por tanto, desde un punto de vista estadístico, puede considerarse plausible el supuesto de homocedasticidad entre las submuestras correspondientes a los periodos predinástico temprano y predinástico tardío.
 
+\subsection{Comprobación gráfica de la homocedasticidad mediante la distribución F}
+
+Antes de aplicar contrastes paramétricos de comparación de medias, es necesario verificar el cumplimiento del supuesto de homocedasticidad, es decir, la igualdad de varianzas entre los grupos analizados. Este supuesto es fundamental para garantizar la validez de pruebas como el test t de Student o el análisis de la varianza (ANOVA).
+
+Para este fin, se ha empleado el test de Levene, un contraste robusto frente a desviaciones de la normalidad, especialmente adecuado en contextos donde dicho supuesto no puede garantizarse plenamente. El test de Levene evalúa la hipótesis nula de igualdad de varianzas entre los grupos frente a la alternativa de varianzas diferentes.
+
+Además del resultado numérico del contraste, se presenta una representación gráfica del estadístico de prueba en el contexto de su distribución teórica. La Figura~\ref{fig:distribucion_f_levene} muestra la distribución F bajo la hipótesis nula de homocedasticidad, junto con el valor crítico correspondiente al nivel de significación establecido y el valor observado del estadístico.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Imagenes/Capturas-Asignación6/distribucion_f_valores_criticos.png}
+    \caption{Distribución F teórica con valor crítico y estadístico observado del test de Levene.}
+    \label{fig:distribucion_f_levene}
+\end{figure}
+
+La curva representada corresponde a la distribución F teórica definida por los grados de libertad asociados al contraste. La línea vertical discontinua indica el valor crítico superior que delimita la región de rechazo para el nivel de significación considerado, mientras que la línea vertical continua representa el valor observado del estadístico de Levene obtenido a partir de las muestras.
+
+Dado que el test de Levene es un contraste unilateral, la región crítica se sitúa exclusivamente en la cola derecha de la distribución. En este caso, el valor observado se encuentra claramente dentro de la región de no rechazo y alejado del valor crítico, lo que indica que no se dispone de evidencia estadísticamente significativa para rechazar la hipótesis nula de igualdad de varianzas.
+
+Por tanto, tanto el contraste analítico como su representación gráfica respaldan la plausibilidad del supuesto de homocedasticidad entre los grupos analizados, permitiendo la aplicación de contrastes paramétricos en las etapas posteriores del análisis.
+
+
 \subsubsection{Implicaciones para el análisis inferencial}
 
 El resultado del test de Levene sugiere que las varianzas de ambas submuestras no difieren de forma estadísticamente significativa. En consecuencia, desde el punto de vista de la homocedasticidad, sería admisible la aplicación del test \emph{t} clásico para la comparación de medias.

@@ -1,12 +1,26 @@
-HU-2.2 – Test t de Welch
-========================
+HU-2.2 – Homocedasticidad (Levene)
+================================
+
+Datos:
+  - Archivo 1: cranios_temprano.csv
+  - Archivo 2: cranios_tardio.csv
+
+Grupos: periodo 1 (temprano) vs periodo 2 (tardío)
+
+n_temprano: 30
+n_tardio  : 30
 
 Hipótesis:
-  H0: μ_tardío = μ_temprano
-  H1: μ_tardío ≠ μ_temprano
+  H0: varianzas iguales
+  H1: varianzas distintas
 
-Estadístico t: 3.935446
-p-valor: 0.000233
-alpha: 0.05
+Estadístico Levene: 0.619493
+p-valor           : 0.434440
+alpha            : 0.05
 
-Decisión: Se rechaza H0 (diferencia significativa de medias)
+Decisión: NO se rechaza H0 (homocedasticidad plausible)
+
+Parámetros distribución F (para visualización):
+  df1 = 1
+  df2 = 58
+  F crítico superior (1-alpha/2): 5.294986

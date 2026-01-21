@@ -64,7 +64,6 @@ df1 = k - 1
 df2 = N - k
 
 # Para visualización tipo “dos colas” (como tu figura):
-f_crit_inf = f.ppf(ALPHA / 2, df1, df2)
 f_crit_sup = f.ppf(1 - ALPHA / 2, df1, df2)
 
 
@@ -103,7 +102,6 @@ with open(OUT_FILE, "w", encoding="utf-8") as ftxt:
     ftxt.write("Parámetros distribución F (para visualización):\n")
     ftxt.write(f"  df1 = {df1}\n")
     ftxt.write(f"  df2 = {df2}\n")
-    ftxt.write(f"  F crítico inferior (alpha/2): {f_crit_inf:.6f}\n")
     ftxt.write(f"  F crítico superior (1-alpha/2): {f_crit_sup:.6f}\n")
 
 print(f"\nResultados guardados en: {OUT_FILE}")
@@ -121,7 +119,7 @@ plt.figure(figsize=(9, 5))
 plt.plot(x, y, label="Distribución F")
 
 # Líneas críticas y observado (estilo parecido a tu ejemplo)
-plt.axvline(f_crit_inf, linestyle="--", label="Valor Crítico Inferior")
+
 plt.axvline(f_crit_sup, linestyle="--", label="Valor Crítico Superior")
 plt.axvline(levene_stat, linestyle="-", label="Valor Observado")
 

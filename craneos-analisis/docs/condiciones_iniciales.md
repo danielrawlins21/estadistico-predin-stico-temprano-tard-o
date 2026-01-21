@@ -42,6 +42,21 @@ Los resultados obtenidos fueron:
 
 Dado que el p-valor es superior al nivel de significación considerado (\(p > 0.05\)), no se rechaza la hipótesis nula de igualdad de varianzas. Por tanto, la homocedasticidad puede considerarse plausible.
 
+### 3.1 Comprobación gráfica de la homocedasticidad mediante la distribución F
+
+Antes de aplicar contrastes paramétricos de comparación de medias, es necesario verificar el cumplimiento del supuesto de **homocedasticidad**, es decir, la igualdad de varianzas entre los grupos analizados. Este supuesto es fundamental para garantizar la validez de pruebas como el test *t* de Student o el análisis de la varianza (ANOVA).
+
+Para este fin, se ha empleado el **test de Levene**, un contraste robusto frente a desviaciones de la normalidad, especialmente adecuado en contextos donde dicho supuesto no puede garantizarse plenamente. El test de Levene evalúa la hipótesis nula de igualdad de varianzas entre los grupos frente a la alternativa de varianzas diferentes.
+
+Además del resultado numérico del contraste, se presenta una **representación gráfica del estadístico de prueba en el contexto de su distribución teórica**. La Figura X muestra la distribución F bajo la hipótesis nula de homocedasticidad, junto con el valor crítico correspondiente al nivel de significación establecido y el valor observado del estadístico.
+
+![Distribución F con valor crítico y estadístico observado del test de Levene](../outputs/figures/distribucion_f_valores_criticos.png)
+
+La curva representada corresponde a la **distribución F teórica** definida por los grados de libertad asociados al contraste. La línea vertical discontinua indica el **valor crítico superior**, que delimita la región de rechazo para el nivel de significación considerado, mientras que la línea vertical continua representa el **valor observado del estadístico de Levene** obtenido a partir de las muestras.
+
+Dado que el test de Levene es un **contraste unilateral**, la región crítica se sitúa exclusivamente en la **cola derecha** de la distribución. En este caso, el valor observado se encuentra claramente dentr
+
+
 ---
 
 ### 4. Decisión metodológica
